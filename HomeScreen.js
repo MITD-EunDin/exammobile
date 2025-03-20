@@ -1,11 +1,51 @@
+// import React from "react";
+// import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+// import { ScanLine, AlertCircle, CheckCircle, Calendar } from "lucide-react-native";
+
+// const HomeScreen = ({ navigation }) => {
+//   return (
+//     <View style={styles.mainContainer}>
+//       {/* Header */}
+//       <View style={styles.headerContainer}>
+//         <View style={styles.userDetails}>
+//           <Text style={styles.greetingText}>Hello 👋</Text>
+//           <Text style={styles.userNameText}>Tôn Văn Diện</Text>
+//         </View>
+//         <Image source={require("./assets/MaskGroup.png")} style={styles.image_group} />
+//       </View>
+
+//       {/* Insights Section */}
+//       <Text style={styles.sectionHeading}>Your Insights</Text>
+//       <View style={styles.insightsWrapper}>
+//         {insightsData.map((item, index) => (
+//           <TouchableOpacity
+//             key={index}
+//             style={[styles.insightCard, { backgroundColor: item.bgColor }]}
+//             onPress={() => {
+//               if (item.title === "Scan new") navigation.navigate("Scan");
+//             }}
+//           >
+//             <item.icon size={30} color={item.color} />
+//             <Text style={styles.insightTitleText}>{item.title}</Text>
+//             <Text style={styles.insightSubtitleText}>{item.subtitle}</Text>
+//           </TouchableOpacity>
+//         ))}
+//       </View>
+//     </View>
+//   );
+// };
+
+
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { ScanLine, AlertCircle, CheckCircle, Calendar } from "lucide-react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.mainContainer}>
-      {/* Header */}
       <View style={styles.headerContainer}>
         <View style={styles.userDetails}>
           <Text style={styles.greetingText}>Hello 👋</Text>

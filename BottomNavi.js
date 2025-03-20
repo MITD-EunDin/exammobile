@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home, Bell, Scan } from "lucide-react-native";
+import { Home, Bell, Scan, ShoppingCart } from "lucide-react-native";
 import HomeScreen from "./HomeScreen";
 import ScreenScan from "./ScreenScan";
-import { View } from "react-native";
+import Cartscreen from "./Cart";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,15 +18,13 @@ export default function BottomNavi() {
             IconComponent = Home;
           } else if (route.name === "Scan") {
             IconComponent = Scan;
-          } else if (route.name === "Notifications") {
+          } else if (route.name === "Notification") {
             IconComponent = Bell;
+          } else if (route.name === "Cart") {
+            IconComponent = ShoppingCart;
           }
 
-          return (
-            <View>
-              <IconComponent color={color} size={size} />
-            </View>
-          );
+          return <IconComponent color={color} size={size} />;
         },
         tabBarActiveTintColor: "#5A6CF3",
         tabBarInactiveTintColor: "gray",
@@ -35,7 +33,8 @@ export default function BottomNavi() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Scan" component={ScreenScan} />
-      <Tab.Screen name="Notifications" component={HomeScreen} />
+      <Tab.Screen name="Notification" component={() => <></>} />
+      <Tab.Screen name="Cart" component={Cartscreen} />
     </Tab.Navigator>
   );
 }
